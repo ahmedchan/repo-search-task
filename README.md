@@ -2,6 +2,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+After downloading repo, Navigate to path that you cloned repo on and open it in terimanl commad line and do the following
+
+```bash
+
+git fetch
+git checkout main
+
+```
+
 First, run the development server:
 
 ```bash
