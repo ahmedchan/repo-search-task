@@ -8,6 +8,9 @@ After downloading repo, Navigate to path that you cloned repo on and open it in 
 
 git fetch
 git checkout main
+npm instll
+# or
+yarn install
 
 ```
 
