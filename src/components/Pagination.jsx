@@ -26,7 +26,7 @@ const Pagination = ({items, pageSize, currentPage = 1, query}) => {
             className={`flex rounded-md justify-center items-center `}
           >
             <span
-              className={`cursor-pointer rounded-md w-[2rem] -[2rem]  border block bg-transparent ${
+              className={`cursor-pointer rounded-md w-[2rem] -[2rem]  border block ${
                 page === Number(currentPage)
                   ? "bg-gray-600 cursor-default hover:bg-gray-600 border-gray-600 text-white "
                   : "hover:bg-stone-300 dark:hover:bg-stone-900 border-stone-300 dark:border-stone-500"
