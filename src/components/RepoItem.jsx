@@ -4,20 +4,11 @@ import Image from "next/image"
 import Button from "@/components/ui/Button"
 import {maxLength} from "@/utils"
 
-const RepoItem = ({ item, favRepos, setFavRepos }) => {
-  const isInFav = favRepos.some((i) => i?.id === item?.id)
+const RepoItem = ({ item, onItemAddedToFav, isInFav }) => {
 
   const handleSaveToFav = (obj) => {
     if (isInFav) return
-
-    if (typeof window !== "undefined" && window.localStorage) {
-      let existRepos =
-        JSON.parse(window.localStorage.getItem("fav_repos")) || []
-
-      existRepos.unshift(obj)
-      window.localStorage.setItem("fav_repos", JSON.stringify(existRepos))
-      setFavRepos((prev) => [obj, ...prev])
-    }
+    onItemAddedToFav(obj)
   }
 
   return (

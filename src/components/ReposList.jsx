@@ -7,9 +7,14 @@ const ReposList = ({ query = "", repos }) => {
 
   useEffect(() => {
       let favs = JSON.parse(window.localStorage.getItem("fav_repos")) || []
-
       setFavRepos(favs)
   }, [])
+
+  const handleAddToFav = obj => {
+    setFavRepos((prev) => [obj, ...prev])
+    let favs = JSON.parse(window.localStorage.getItem("fav_repos")) || []
+    window.localStorage.setItem("fav_repos", JSON.stringify([obj, ...favs]))
+  }
 
   // render variable
   const renderList =
@@ -20,6 +25,8 @@ const ReposList = ({ query = "", repos }) => {
           favRepos={favRepos}
           setFavRepos={setFavRepos}
           item={item}
+          isInFav={favRepos.some((i) => i?.id === item?.id)}
+          onItemAddedToFav={handleAddToFav}
         />
       ))
     ) : (

@@ -1,7 +1,7 @@
 "use client"
 import { usePathname, useRouter } from "next/navigation"
 
-const Pagination = ({items, pageSize, currentPage, query}) => {
+const Pagination = ({items, pageSize, currentPage = 1, query}) => {
    const pathname = usePathname()
    const router = useRouter()
 
@@ -10,8 +10,7 @@ const Pagination = ({items, pageSize, currentPage, query}) => {
    if (pagecount === 1) return null 
    const pages = Array.from({ length: pagecount}, (_, i) => i + 1)
 
-   const onPageChange = (event, page) => {
-     event && event.preventDefault()
+   const onPageChange = (page) => {
      const url = page
        ? `${pathname}?query=${query}&page=${Number(page)}`
        : pathname
@@ -24,18 +23,18 @@ const Pagination = ({items, pageSize, currentPage, query}) => {
         {pages.slice(0, 100).map((page) => (
           <li
             key={page}
-            className={`flex rounded-md justify-center items-center  border border-stone-300 dark:border-stone-500`}
+            className={`flex rounded-md justify-center items-center `}
           >
-            <button
-              className={`cursor-pointer rounded-md w-[2rem] -[2rem] block bg-transparent hover:bg-stone-300 dark:hover:bg-stone-900 ${
-                page === currentPage
-                  ? "bg-stone-600 cursor-default hover:bg-stone-600 border-stone-600 text-white "
-                  : ""
+            <span
+              className={`cursor-pointer rounded-md w-[2rem] -[2rem]  border block bg-transparent ${
+                page === Number(currentPage)
+                  ? "bg-gray-600 cursor-default hover:bg-gray-600 border-gray-600 text-white "
+                  : "hover:bg-stone-300 dark:hover:bg-stone-900 border-stone-300 dark:border-stone-500"
               }`}
-              onClick={(event) => onPageChange(event, page)}
+              onClick={() => onPageChange(page)}
             >
               {page}
-            </button>
+            </span>
           </li>
         ))}
       </ul>

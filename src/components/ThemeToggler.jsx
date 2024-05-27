@@ -26,7 +26,7 @@ const ThemeSwitcher = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="flex items-center gap-2 w-8 h-8 justify-center rounded-full transition-all duration-200 border border-stone-300 dark:border-stone-700"
+      className="flex items-center gap-2 w-8 h-8 justify-center rounded-full transition-all duration-200 border border-stone-300 dark:border-stone-700 hover:bg-gray-200 dark:hover:bg-gray-900"
     >
       {resolvedTheme === "light" ? (
         <IoSunnyOutline size={18} />

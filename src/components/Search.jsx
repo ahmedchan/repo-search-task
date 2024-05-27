@@ -4,7 +4,7 @@ import { IoSearch } from "react-icons/io5"
 import Button from "@/components/ui/Button"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
-const Search = () => {
+const Search = ({query, currentPage}) => {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const router = useRouter()
@@ -15,12 +15,14 @@ const Search = () => {
 
   useEffect(() => {
     setSearchTerm("TenStack")
-    router.replace(`${pathname}?query=TenStack`)
+    router.replace(`${pathname}?query=${query}&page=${currentPage}`)
   }, [])
   
   const onSubmit = (event) => {
     event.preventDefault()
-    const url = searchTerm ? `${pathname}?query=${searchTerm}` : pathname
+    const url = searchTerm
+      ? `${pathname}?query=${searchTerm}&page=${currentPage}`
+      : pathname
     router.replace(url)
   }
 
