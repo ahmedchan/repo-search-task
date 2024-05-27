@@ -8,11 +8,12 @@ import { maxLength } from "@/utils"
 
 function FavItem({ item, setFavRepos }) {
   const handleRemove = (favId) => {
-    console.log({ favId })
-    let favs = JSON.parse(localStorage.getItem("fav_repos")) || []
-    let modifiedFavs = favs.filter((i) => i.id !== favId)
-    localStorage.setItem("fav_repos", JSON.stringify(modifiedFavs))
-    setFavRepos(modifiedFavs)
+    if (window.confirm("are you sure?")) {
+      let favs = JSON.parse(localStorage.getItem("fav_repos")) || []
+      let modifiedFavs = favs.filter((i) => i.id !== favId)
+      localStorage.setItem("fav_repos", JSON.stringify(modifiedFavs))
+      setFavRepos(modifiedFavs)
+    }
   }
 
   return (

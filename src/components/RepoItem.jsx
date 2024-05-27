@@ -12,7 +12,7 @@ const RepoItem = ({ item, onItemAddedToFav, isInFav }) => {
   }
 
   return (
-    <div className="border border-stone-200 dark:border-stone-600 p-3 rounded-md flex justify-between gap-7">
+    <div className="border border-stone-200 dark:border-stone-600 p-3 rounded-md flex flex-col md:flex-row justify-between gap-7">
       <div className="flex-1 flex flex-col gap-1">
         <h3 className="">
           <a

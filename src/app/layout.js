@@ -13,12 +13,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning={true}>
-      <body className={`m-0 p-0 ${inter.className}`}>
+      <body className={`m-0 p-0 ${inter.className} `}>
         <LayoutContainer>
           {/* page wrapper */}
-          <div className="p-wrapper md:py-5 w-full min-h-screen bg-stone-200 dark:bg-stone-900 transition-all text-stone-800 dark:text-stone-100 sm:p-5">
+          <div className="p-wrapper md:py-5 w-full min-h-screen bg-white md:bg-stone-200 dark:bg-stone-800 md:dark:bg-stone-900 transition-all text-stone-800 dark:text-stone-100 sm:p-5">
             {/* main container */}
-            <div className="max-w-[870px] w-full m-auto border bg-white dark:bg-stone-800 shadow-sm border-stone-200 rounded-lg dark:border-stone-700 p-4 md:p-6">
+            <div className="max-w-[870px] w-full m-auto md:border bg-white dark:bg-stone-800 shadow-sm border-stone-200 rounded-lg dark:border-stone-700 p-4 md:p-6">
               <div className="flex flex-col gap-5 justify-between">
                 <Header appName="Github Searcher" />
                 <main className="app-content mt-5">{children}</main>
